@@ -2021,12 +2021,23 @@ else {
 			TweenLite.to(timeline, Math.abs(positions[i] - timeline.time()), {time:positions[i], ease:Linear.easeNone, onComplete:function() {
 					// Reset the timeScale when the tween is done
 					timeScale = 0;
+                    if(positionIndex === 3){
+                        $(".element").typed({
+                            strings: ["<html> More coffee, more coffee </html>", " Coffee makes great code!","html> More coffee, more coffee </html> //script $('.cup').addClass('coffee)"],
+                            typeSpeed: 0
+                        });
+                    }
 				}
 			}).timeScale(timeScale);
 		}
 
 		// Public Functions
 		tweendeck.next = function() {
+            if(positionIndex === 1){
+                try{
+                    $('#spaceCanvas').remove();
+                }catch(e){}
+            }
 			tweenTo(positionIndex+1);
 		};
 		tweendeck.prev = function() {
@@ -2380,18 +2391,18 @@ else {
   // tl.add(slideHow4);
   //
   //
-  // // SLIDE ======================================================================== //
-  // var slideExample = new TimelineMax();
-  // // outro prev slide
-  // slideExample.add(TweenMax.to($('#slide-how'),0.25,{opacity:0}));
-  // slideExample.add(TweenMax.to($('#slide-how'),0,{immediateRender:false,css:{display:'none'}}));
-  //
-  // // intro
-  // slideExample.add(TweenMax.to($('#slide-example'),0,{immediateRender:false,css:{display:'block'}}));
-  // slideExample.add(TweenMax.from($('#slide-example'),1.5,{opacity:0,rotationY:720, transformOrigin:"50% 50%", perspective:1000, ease:Elastic.easeOut}));
-  // slideExample.add(TweenMax.to($('body'),1,{backgroundColor:'#99cee2'}),0);
-  // tl.add(slideExample);
-  //
+  // SLIDE ======================================================================== //
+  var slideExample = new TimelineMax();
+  // outro prev slide
+  slideExample.add(TweenMax.to($('#slide-github'),0.25,{opacity:0}));
+  slideExample.add(TweenMax.to($('#slide-github'),0,{immediateRender:false,css:{display:'none'}}));
+  
+  // intro
+  slideExample.add(TweenMax.to($('#slide-example'),0,{immediateRender:false,css:{display:'block'}}));
+  slideExample.add(TweenMax.from($('#slide-example'),1.5,{opacity:0,rotationY:720, transformOrigin:"50% 50%", perspective:1000, ease:Elastic.easeOut}));
+  slideExample.add(TweenMax.to($('body'),1,{backgroundColor:'#99cee2'}),0);
+  tl.add(slideExample);
+  
   //
   // // SLIDE ======================================================================== //
   // var slideDemo = new TimelineMax();

@@ -15,13 +15,19 @@
   <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic|Patua+One' rel='stylesheet' type='text/css'>
   <!--<link href="css/min/styles.min.css" rel="stylesheet" />-->
   <!-- Optionally use the non-minified CSS for development -->
+    <link rel="stylesheet" href="css/coffeeMaker.css">
    <link href="css/libs/z.styles.concat.css" rel="stylesheet" />
-
+    <link rel="stylesheet" href="css/spaceStyle.css">
+    <link rel="stylesheet" href="css/coffeeCupStyle.css">
+    <link rel="stylesheet" href="css/ninja.css">
   <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/gl-matrix/2.1.0/gl-matrix.js'></script>
+
 
 </head>
 <body>
-
+<canvas id="spaceCanvas"></canvas>
 
   <div class="main" role="main">
 
@@ -31,9 +37,11 @@
     </div>
 
     <div id="slide-title" class="slide slide-center">
+
       <div class="container-center">
         <div class="content-center">
-          <h1>Dave Kilmoyer - Leadership Program Application</h1>
+          <h1>Dave Kilmoyer</h1>
+            <h1>Leadership Program Application</h1>
           <div class="instructions">
             <p>Press <span class="btn btn-key">&rarr;</span> to go forward, and <span class="btn btn-key">&larr;</span> to go back</p>
             <p>Or scroll down <span class="icon-scroll bouncer">&#9662;</span></p>
@@ -50,7 +58,34 @@
             <h1 class="step step2">get one.</h1>
           </div>
           <h3 class="step step3">And start posting stuff.</h3>
-          <img src="img/octocat.png" alt="" id="octocat" />
+            <div class="ninja" id="octocat">
+
+                <div class="head">
+                    <div class="hood"></div>
+
+                    <div class="mask"></div>
+
+                    <div class="face">
+                        <div class="left eye"></div>
+                        <div class="right eye"></div>
+                    </div>
+                </div>
+
+                <div class="knot">
+                    <div class="tail"></div>
+                    <div class="tail"></div>
+                </div>
+
+                <div class="body">
+                    <!--      -->
+                </div>
+
+                <div class="swords">
+                    <!--      -->
+                </div>
+
+            </div>
+          <!--<img src="img/octocat.png" alt="" id="octocat" />-->
         </div>  
       </div>
     </div>
@@ -197,14 +232,35 @@
       <!--</div>-->
     <!--</div>-->
     <!---->
-    <!--<div id="slide-example" class="slide slide-center">-->
-      <!--<div class="container-center">-->
-        <!--<div class="content-center">-->
-          <!--<h1>An Example</h1>-->
-          <!--<p>How about this very presentation right here? Open sourced live during <a href="http://techweek.com/chicago/">Techweek Chicago</a>.</p>-->
-        <!--</div>  -->
-      <!--</div>-->
-    <!--</div>-->
+    <div id="slide-example" class="slide slide-center">
+      <div class="container-center">
+        <div class="content-center">
+            <div class="cup-container">
+                <div class="cup">
+                    <div class="coffee"> </div>
+                </div>
+                <div class="holder"></div>
+                <div class="holder2"> </div>
+                <div class="straw">
+                    <div class="inner"> </div>
+                </div>
+
+                <div class="laptop">
+                    <div class="monitor">
+                        <div class="screen">
+                            <div class="element"> </div>
+                        </div>
+                        <div class="stand">
+                            <div class="base"> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          <h1>An Example</h1>
+          <p>How about this very presentation right here? Open sourced live during <a href="http://techweek.com/chicago/">Techweek Chicago</a>.</p>
+        </div>
+      </div>
+    </div>
 
     <!--<div id="slide-demo" class="slide">-->
       <!--<div class="step step-1">-->
@@ -337,8 +393,11 @@
 
   </div><!-- /.main -->
 
-<!-- jQuery -->
 <script src="js/vendor/jquery-1.9.1.min.js"></script>
+<script src="js/space.js"></script>
+<script src="js/coffeeCup.js"></script>
+<!-- jQuery -->
+
 
 <!-- Greensock -->
 <script src="js/vendor/greensock.min.js"></script>

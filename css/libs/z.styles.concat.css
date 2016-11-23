@@ -1622,6 +1622,7 @@ pre {
 }
 /* line 13, ../sass/02._elements.scss */
 .instructions p {
+    color:white;
   font-size: 18px;
 }
 /* line 16, ../sass/02._elements.scss */
@@ -1928,7 +1929,7 @@ pre {
 
 /* line 110, ../sass/03._slides.scss */
 .js #slide-title h1 {
-  color: rgba(0, 0, 0, 0.75);
+  color: #E7E7E7;
 }
 /* line 113, ../sass/03._slides.scss */
 .js #slide-github, .js #slide-famous, .js #slide-learning, .js #slide-me {
