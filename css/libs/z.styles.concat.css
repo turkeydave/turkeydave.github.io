@@ -1884,7 +1884,7 @@ pre {
 #octocat {
   position: absolute;
   left: 0;
-  top: 100px;
+  bottom: 0;
 }
 
 /* line 78, ../sass/03._slides.scss */
@@ -1913,7 +1913,7 @@ pre {
 /* line 95, ../sass/03._slides.scss */
 .terminal {
   background: #fff;
-  width: 960px;
+  /*width: 960px;*/
   margin: 0 auto 40px;
   border-radius: 4px;
   border: solid 2px #999999;

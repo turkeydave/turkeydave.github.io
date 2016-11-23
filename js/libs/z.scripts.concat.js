@@ -2075,7 +2075,7 @@ else {
   $('#slide-title h1').lettering();
   var intro = new TimelineMax();
   intro.add(TweenMax.to($('#slide-title'),0,{immediateRender:false,css:{display:'block'}}));
-  intro.add(TweenMax.fromTo($('body'),0.5,{backgroundColor:'#fff'},{delay:0.5,backgroundColor:'#99cee2'}));
+  intro.add(TweenMax.fromTo($('body'),0.5,{backgroundColor:'#fff'},{delay:0.5,backgroundColor:'#000'}));
   $('#slide-title h1 span').css({position:'relative'}).each(function() {
     intro.add(TweenMax.from(this, 2, {css:{top: Math.random()*200+600, left: (Math.random()*1000)-500, rotation:Math.random()*720-360}, ease:Back.easeOut}),1.25);
   });
@@ -2094,7 +2094,7 @@ else {
     slideGithub.add(TweenMax.to(this, 1.5, {css:{opacity:0, top: Math.random()*-200-400, left: (Math.random()*1000)-500, rotation:Math.random()*720-360}, ease:Expo.easeIn}),0);
   });
   slideGithub.add(TweenMax.to($('#author,.instructions').css({position:'relative'}), 0.5, {opacity:0}),0);
-  slideGithub.add(TweenMax.to($('#fork-ribbon'), 0.5, {top:-200,right:-200, ease:Expo.easeIn}),0);
+  //slideGithub.add(TweenMax.to($('#fork-ribbon'), 0.5, {top:-200,right:-200, ease:Expo.easeIn}),0);
   slideGithub.add(TweenMax.to($('#slide-title'),0,{immediateRender:false,css:{display:'none'}}));
 
   // then animate in the new slide content
@@ -2103,8 +2103,25 @@ else {
   slideGithub.add(TweenMax.from($('#slide-github .step1'),0.5,{opacity:0}));
   slideGithub.add(TweenMax.from($('#slide-github .step2'),0.5,{opacity:0,rotationY:720, transformOrigin:"50% 50%", perspective:2000,delay:-0.25}));
   slideGithub.add(TweenMax.from($('#octocat'),0.25,{left:-300,delay:0.75}));
-  slideGithub.add(TweenMax.from($('#slide-github .step3'),0.375,{opacity:0,top:160,ease:Back.easeOut,delay:-0.25}));
+  //slideGithub.add(TweenMax.from($('#slide-github .step3'),0.375,{opacity:0,top:160,ease:Back.easeOut,delay:-0.25}));
   tl.add(slideGithub);
+
+    var slideGithub2 = new TimelineMax();
+    slideGithub2.add(TweenMax.to($('#slide-github'),0.25,{opacity:0}));
+    slideGithub2.add(TweenMax.to($('#slide-github'),0,{immediateRender:false,css:{display:'none'}}));
+
+    slideGithub2.add(TweenMax.to($('#author,.instructions').css({position:'relative'}), 0.5, {opacity:0}),0);
+    slideGithub2.add(TweenMax.to($('#fork-ribbon'), 0.5, {top:-200,right:-200, ease:Expo.easeIn}),0);
+    slideGithub2.add(TweenMax.to($('#slide-title'),0,{immediateRender:false,css:{display:'none'}}));
+
+    // then animate in the new slide content
+    slideGithub2.add(TweenMax.to($('#slide-github2'),0,{immediateRender:false,css:{display:'block'}}),1);
+    slideGithub2.add(TweenMax.to($('body'),0.5,{backgroundColor:'#4183c4'}),1);
+    slideGithub2.add(TweenMax.from($('#slide-github2 .step1'),0.5,{opacity:0}));
+    slideGithub2.add(TweenMax.from($('#slide-github2 .step2'),0.5,{opacity:0,rotationY:720, transformOrigin:"50% 50%", perspective:2000,delay:-0.25}));
+    tl.add(slideGithub2);
+
+
   //
   //
   // // SLIDE ======================================================================== //
@@ -2394,8 +2411,8 @@ else {
   // SLIDE ======================================================================== //
   var slideExample = new TimelineMax();
   // outro prev slide
-  slideExample.add(TweenMax.to($('#slide-github'),0.25,{opacity:0}));
-  slideExample.add(TweenMax.to($('#slide-github'),0,{immediateRender:false,css:{display:'none'}}));
+  slideExample.add(TweenMax.to($('#slide-github2'),0.25,{opacity:0}));
+  slideExample.add(TweenMax.to($('#slide-github2'),0,{immediateRender:false,css:{display:'none'}}));
   
   // intro
   slideExample.add(TweenMax.to($('#slide-example'),0,{immediateRender:false,css:{display:'block'}}));
