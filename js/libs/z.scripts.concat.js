@@ -2021,11 +2021,18 @@ else {
 			TweenLite.to(timeline, Math.abs(positions[i] - timeline.time()), {time:positions[i], ease:Linear.easeNone, onComplete:function() {
 					// Reset the timeScale when the tween is done
 					timeScale = 0;
-                    if(positionIndex === 3){
+                    if(positionIndex === 6){
                         $(".element").typed({
                             strings: ["<html> More coffee, more coffee </html>", " Coffee makes great code!","html> More coffee, more coffee </html> //script $('.cup').addClass('coffee)"],
                             typeSpeed: 0
                         });
+                    }
+                    if(positionIndex === 10){
+                        $('body').css('background-color', '#101521');
+                        $('#skills-chart-legend').css('display', 'block');
+
+                        makeSpiderChart();
+                        //alert('dude');
                     }
 				}
 			}).timeScale(timeScale);
@@ -2036,6 +2043,12 @@ else {
             if(positionIndex === 1){
                 try{
                     $('#spaceCanvas').remove();
+                }catch(e){}
+            }
+            if(positionIndex === 11){
+                try{
+                    $('#myChart').remove();
+                    $('#skills-chart-legend').css('display', 'none');
                 }catch(e){}
             }
 			tweenTo(positionIndex+1);
@@ -2087,40 +2100,141 @@ else {
   // SLIDE ======================================================================== //
 
   // each slide gets a timeline
-  var slideGithub = new TimelineMax();
+  var slideAboutMe = new TimelineMax();
 
   // for each slide, animate out the previous content
   $('#slide-title h1 span').css({position:'relative'}).each(function() {
-    slideGithub.add(TweenMax.to(this, 1.5, {css:{opacity:0, top: Math.random()*-200-400, left: (Math.random()*1000)-500, rotation:Math.random()*720-360}, ease:Expo.easeIn}),0);
+      slideAboutMe.add(TweenMax.to(this, 1.5, {css:{opacity:0, top: Math.random()*-200-400, left: (Math.random()*1000)-500, rotation:Math.random()*720-360}, ease:Expo.easeIn}),0);
   });
-  slideGithub.add(TweenMax.to($('#author,.instructions').css({position:'relative'}), 0.5, {opacity:0}),0);
+    slideAboutMe.add(TweenMax.to($('#author,.instructions').css({position:'relative'}), 0.5, {opacity:0}),0);
   //slideGithub.add(TweenMax.to($('#fork-ribbon'), 0.5, {top:-200,right:-200, ease:Expo.easeIn}),0);
-  slideGithub.add(TweenMax.to($('#slide-title'),0,{immediateRender:false,css:{display:'none'}}));
+    slideAboutMe.add(TweenMax.to($('#slide-title'),0,{immediateRender:false,css:{display:'none'}}));
 
   // then animate in the new slide content
-  slideGithub.add(TweenMax.to($('#slide-github'),0,{immediateRender:false,css:{display:'block'}}),1);
-  slideGithub.add(TweenMax.to($('body'),0.5,{backgroundColor:'#4183c4'}),1);
-  slideGithub.add(TweenMax.from($('#slide-github .step1'),0.5,{opacity:0}));
-  slideGithub.add(TweenMax.from($('#slide-github .step2'),0.5,{opacity:0,rotationY:720, transformOrigin:"50% 50%", perspective:2000,delay:-0.25}));
-  slideGithub.add(TweenMax.from($('#octocat'),0.25,{left:-300,delay:0.75}));
+    slideAboutMe.add(TweenMax.to($('#slide-github'),0,{immediateRender:false,css:{display:'block'}}),1);
+    slideAboutMe.add(TweenMax.to($('body'),0.5,{backgroundColor:'#4183c4'}),1);
+    slideAboutMe.add(TweenMax.from($('#slide-github .step1'),0.5,{opacity:0}));
+    slideAboutMe.add(TweenMax.from($('#slide-github .step2'),0.5,{opacity:0,rotationY:720, transformOrigin:"50% 50%", perspective:2000,delay:-0.25}));
+    slideAboutMe.add(TweenMax.from($('#octocat'),0.25,{left:-300,delay:0.75}));
   //slideGithub.add(TweenMax.from($('#slide-github .step3'),0.375,{opacity:0,top:160,ease:Back.easeOut,delay:-0.25}));
-  tl.add(slideGithub);
+  tl.add(slideAboutMe);
 
-    var slideGithub2 = new TimelineMax();
-    slideGithub2.add(TweenMax.to($('#slide-github'),0.25,{opacity:0}));
-    slideGithub2.add(TweenMax.to($('#slide-github'),0,{immediateRender:false,css:{display:'none'}}));
+    var slideAboutMe2 = new TimelineMax();
+    slideAboutMe2.add(TweenMax.to($('#slide-github'),0.25,{opacity:0}));
+    slideAboutMe2.add(TweenMax.to($('#slide-github'),0,{immediateRender:false,css:{display:'none'}}));
 
-    slideGithub2.add(TweenMax.to($('#author,.instructions').css({position:'relative'}), 0.5, {opacity:0}),0);
-    slideGithub2.add(TweenMax.to($('#fork-ribbon'), 0.5, {top:-200,right:-200, ease:Expo.easeIn}),0);
-    slideGithub2.add(TweenMax.to($('#slide-title'),0,{immediateRender:false,css:{display:'none'}}));
+    slideAboutMe2.add(TweenMax.to($('#author,.instructions').css({position:'relative'}), 0.5, {opacity:0}),0);
+    slideAboutMe2.add(TweenMax.to($('#fork-ribbon'), 0.5, {top:-200,right:-200, ease:Expo.easeIn}),0);
+    slideAboutMe2.add(TweenMax.to($('#slide-title'),0,{immediateRender:false,css:{display:'none'}}));
 
     // then animate in the new slide content
-    slideGithub2.add(TweenMax.to($('#slide-github2'),0,{immediateRender:false,css:{display:'block'}}),1);
-    slideGithub2.add(TweenMax.to($('body'),0.5,{backgroundColor:'#4183c4'}),1);
-    slideGithub2.add(TweenMax.from($('#slide-github2 .step1'),0.5,{opacity:0}));
-    slideGithub2.add(TweenMax.from($('#slide-github2 .step2'),0.5,{opacity:0,rotationY:720, transformOrigin:"50% 50%", perspective:2000,delay:-0.25}));
-    tl.add(slideGithub2);
+    slideAboutMe2.add(TweenMax.to($('#slide-github2'),0,{immediateRender:false,css:{display:'block'}}),1);
+    slideAboutMe2.add(TweenMax.to($('body'),0.5,{backgroundColor:'#4183c4'}),1);
+    slideAboutMe2.add(TweenMax.from($('#slide-github2 .step1'),0.5,{opacity:0}));
+    slideAboutMe2.add(TweenMax.from($('#slide-github2 .step2'),0.5,{opacity:0,rotationY:720, transformOrigin:"50% 50%", perspective:2000,delay:-0.25}));
+    tl.add(slideAboutMe2);
 
+
+    // SLIDE ======================================================================== //
+    var slidePassion = new TimelineMax();
+    // outro prev slide
+    slidePassion.add(TweenMax.to($('#slide-github2'),0.25,{opacity:0}));
+    slidePassion.add(TweenMax.to($('#slide-github2'),0,{immediateRender:false,css:{display:'none'}}));
+
+    // intro
+    slidePassion.add(TweenMax.to($('#slide-tips'),0,{immediateRender:false,css:{display:'block'}}));
+    slidePassion.add(TweenMax.from($('#slide-tips'),0.25,{opacity:0}));
+    slidePassion.add(TweenMax.from($('#slide-tips .terminal').eq(0),0.25,{opacity:0,fontSize:'1px',ease:Quad.easeOut}));
+    slidePassion.add(TweenMax.to($('body'),0.5,{backgroundColor:'#615aa3'}),0);
+    tl.add(slidePassion);
+
+    // SLIDE ======================================================================== //
+    var slidePassion2 = new TimelineMax();
+    // outro prev slide
+    slidePassion2.add(TweenMax.to($('#slide-tips'),0.25,{opacity:0}));
+    slidePassion2.add(TweenMax.to($('#slide-tips'),0,{immediateRender:false,css:{display:'none'}}));
+
+    // intro
+    slidePassion2.add(TweenMax.to($('#slide-tips2'),0,{immediateRender:false,css:{display:'block'}}));
+    slidePassion2.add(TweenMax.from($('#slide-tips2'),0.25,{opacity:0}));
+    slidePassion2.add(TweenMax.from($('#slide-tips2 .terminal').eq(0),0.25,{opacity:0,fontSize:'1px',ease:Quad.easeOut}));
+    slidePassion2.add(TweenMax.to($('body'),0.5,{backgroundColor:'#615aa3'}),0);
+    tl.add(slidePassion2);
+
+    // SLIDE ======================================================================== //
+    var slidePassion3 = new TimelineMax();
+    // outro prev slide
+    slidePassion3.add(TweenMax.to($('#slide-tips2'),0.25,{opacity:0}));
+    slidePassion3.add(TweenMax.to($('#slide-tips2'),0,{immediateRender:false,css:{display:'none'}}));
+
+    // intro
+    slidePassion3.add(TweenMax.to($('#slide-tips3'),0,{immediateRender:false,css:{display:'block'}}));
+    slidePassion3.add(TweenMax.from($('#slide-tips3'),0.25,{opacity:0}));
+    slidePassion3.add(TweenMax.from($('#slide-tips3 .terminal').eq(0),0.25,{opacity:0,fontSize:'1px',ease:Quad.easeOut}));
+    slidePassion3.add(TweenMax.to($('body'),0.5,{backgroundColor:'#615aa3'}),0);
+    tl.add(slidePassion3);
+
+
+    // SLIDE ======================================================================== //
+    var slideBold = new TimelineMax();
+    // outro prev slide
+    slideBold.add(TweenMax.to($('#slide-tips3'),0.25,{opacity:0}));
+    slideBold.add(TweenMax.to($('#slide-tips3'),0,{immediateRender:false,css:{display:'none'}}));
+
+    // intro
+    slideBold.add(TweenMax.to($('#slide-timid'),0,{immediateRender:false,css:{display:'block'}}));
+    slideBold.add(TweenMax.from($('#slide-timid'),0.25,{opacity:0,top:-600,ease:Back.easeOut}));
+    slideBold.add(TweenMax.to($('body'),1,{backgroundColor:'#e74c3c'}),0);
+    tl.add(slideBold);
+
+    // SLIDE ======================================================================== //
+    var slideCommit = new TimelineMax();
+    // outro prev slide
+    slideCommit.add(TweenMax.to($('#slide-timid'),0.25,{opacity:0}));
+    slideCommit.add(TweenMax.to($('#slide-timid'),0,{immediateRender:false,css:{display:'none'}}));
+
+    // intro
+    slideCommit.add(TweenMax.to($('#slide-example'),0,{immediateRender:false,css:{display:'block'}}));
+    slideCommit.add(TweenMax.from($('#slide-example'),1.5,{opacity:0,rotationY:360, transformOrigin:"50% 50%", perspective:1000, ease:Elastic.easeOut}));
+    slideCommit.add(TweenMax.to($('body'),1,{backgroundColor:'#99cee2'}),0);
+    tl.add(slideCommit);
+
+    // SLIDE ======================================================================== //
+    var slideCommit2 = new TimelineMax();
+    // outro prev slide
+    slideCommit2.add(TweenMax.to($('#slide-example'),0.25,{opacity:0}));
+    slideCommit2.add(TweenMax.to($('#slide-example'),0,{immediateRender:false,css:{display:'none'}}));
+
+    // intro
+    slideCommit2.add(TweenMax.to($('#slide-example2'),0,{immediateRender:false,css:{display:'block'}}));
+    slideCommit2.add(TweenMax.from($('#slide-example2'),1.5,{opacity:0,rotationY:360, transformOrigin:"50% 50%", perspective:1000, ease:Elastic.easeOut}));
+    slideCommit2.add(TweenMax.to($('body'),1,{backgroundColor:'#99cee2'}),0);
+    tl.add(slideCommit2);
+
+    // SLIDE ======================================================================== //
+    var slideCommit3 = new TimelineMax();
+    // outro prev slide
+    slideCommit3.add(TweenMax.to($('#slide-example2'),0.25,{opacity:0}));
+    slideCommit3.add(TweenMax.to($('#slide-example2'),0,{immediateRender:false,css:{display:'none'}}));
+
+    // intro
+    slideCommit3.add(TweenMax.to($('#slide-example3'),0,{immediateRender:true,css:{display:'block'}}));
+    slideCommit3.add(TweenMax.from($('#slide-example3'),0,{opacity:0}));
+    slideCommit3.add(TweenMax.from($('#slide-example3 .skills-chart'),0,{opacity:0}));
+    slideCommit3.add(TweenMax.from($('#myChart'),0,{opacity:0}));
+    slideCommit3.add(TweenMax.to($('body'),0,{backgroundColor:'#101521'}),0);
+    tl.add(slideCommit3);
+
+    // // SLIDE ======================================================================== //
+    var slideEpic = new TimelineMax();
+    // outro prev slide
+    slideEpic.add(TweenMax.to($('#slide-example3'),0.25,{opacity:0}),0);
+    slideEpic.add(TweenMax.to($('#slide-example3'),0,{immediateRender:false,css:{display:'none'}}));
+    // intro
+    slideEpic.add(TweenMax.to($('#slide-epic'),0,{immediateRender:false,css:{display:'block'}}));
+    slideEpic.add(TweenMax.to($('body'),0.5,{backgroundColor:'#c00000'}));
+    slideEpic.add(TweenMax.from($('#slide-epic img').css('position','relative'),0.75,{opacity:0,top:150,rotationY:450, delay:-0.25,transformOrigin:"50% 50%", perspective:2000,ease:Expo.easeOut}));
+    tl.add(slideEpic);
 
   //
   //
@@ -2408,17 +2522,7 @@ else {
   // tl.add(slideHow4);
   //
   //
-  // SLIDE ======================================================================== //
-  var slideExample = new TimelineMax();
-  // outro prev slide
-  slideExample.add(TweenMax.to($('#slide-github2'),0.25,{opacity:0}));
-  slideExample.add(TweenMax.to($('#slide-github2'),0,{immediateRender:false,css:{display:'none'}}));
   
-  // intro
-  slideExample.add(TweenMax.to($('#slide-example'),0,{immediateRender:false,css:{display:'block'}}));
-  slideExample.add(TweenMax.from($('#slide-example'),1.5,{opacity:0,rotationY:720, transformOrigin:"50% 50%", perspective:1000, ease:Elastic.easeOut}));
-  slideExample.add(TweenMax.to($('body'),1,{backgroundColor:'#99cee2'}),0);
-  tl.add(slideExample);
   
   //
   // // SLIDE ======================================================================== //

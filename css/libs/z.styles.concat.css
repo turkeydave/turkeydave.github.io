@@ -2046,7 +2046,13 @@ pre {
 }
 /* line 216, ../sass/03._slides.scss */
 .js #slide-tips {
-  padding-top: 60px;
+  padding-top: 15px;
+}
+.js #slide-tips2 {
+    padding-top: 15px;
+}
+.js #slide-tips3 {
+    padding-top: 15px;
 }
 /* line 218, ../sass/03._slides.scss */
 .js #slide-tips h2, .js #slide-tips h3 {
@@ -2056,7 +2062,7 @@ pre {
 .js #slide-tips .step {
   position: absolute;
   width: 100%;
-  top: 180px;
+  top: 90px;
   left: 0;
   padding: 0 5%;
 }
@@ -2068,9 +2074,16 @@ pre {
 .js #slide-timid .step {
   position: absolute;
   width: 100%;
-  top: 180px;
+  top: 20px;
   left: 0;
   padding: 0 5%;
+}
+.js #slide-timid .step2 {
+    position: absolute;
+    width: 100%;
+    top: 100px;
+    left: 0;
+    padding: 0 5%;
 }
 /* line 238, ../sass/03._slides.scss */
 .js #slide-action h5 {
