@@ -1907,9 +1907,11 @@ pre {
 
 /* line 92, ../sass/03._slides.scss */
 #slide-epic {
-  padding-top: 10px;
+  padding-top: 100px;
 }
-
+#slide-epic2 {
+    padding-top: 10px;
+}
 /* line 95, ../sass/03._slides.scss */
 .terminal {
   background: #fff;
